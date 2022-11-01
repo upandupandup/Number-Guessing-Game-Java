@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+
+public class SimpleGame {
+    public static int level = 0;
+    public static int max = 0;
+    public static int secretNumber = 0;
+    public static boolean continGame = true;
+    public static void main(String[] args) {
+        int min=0;
+        System.out.println("Давайте почнимо гру!");
+        do {
+            level++;
+            max = (int) Math.pow(10, level);
+            secretNumber = (int)(Math.random()*max)+1;
+            game(max);
+        } while (continGame==true);
+
+    }
+    public static void game(int max){
+        Scanner scanner = new Scanner(System.in);
+        int number = -1;
+        int count = 1;
+
+
+
+        System.out.println("Гра почалась!");
+        System.out.println();
+        System.out.printf("--== Рівень %d ==--\n",level);
+        System.out.println();
+        System.out.println("Мінімальне число -0. Максимальне число - "+ max);
+
+
+
+        while (number != secretNumber){
+            System.out.println("Ваша спроба №"+count);
+            System.out.print("Введіть своє число:  ");
+            number = scanner.nextInt();
+            System.out.println();
+            if (number<0||number>max) {
+                System.out.println("Число за межами діапазно. Діапазон від 0 до "+max);
+                continue;
+            }
+            else if (number < secretNumber){
+                System.out.println("Не вгадали!Секретне счисло БІЛЬШЕ.");
+                System.out.println();
+                count++;
+                continue;
+            }
+            else if (number > secretNumber) {
+                System.out.println("Не вгадали!Секретне счисло МЕНШЕ.");
+                System.out.println();
+                count++;
+                continue;
+            } else if (number == secretNumber) {
+                System.out.println("Ви ВГАДАЛИ! Кількість спроб -  "+count);
+                System.out.println();
+                System.out.println("Переходимо на наступний рівень!");
+                System.out.println();
+//                System.out.print("Бажаєте продовжити?  ");
+//                String tempContin = scanner.nextLine();
+            }
+        }
+    }
+}
