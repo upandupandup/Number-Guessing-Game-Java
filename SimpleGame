@@ -8,7 +8,7 @@ public class SimpleGame {
     public static boolean continGame = true;
     public static void main(String[] args) {
         int min=0;
-        System.out.println("Давайте почнимо гру!");
+        System.out.println("Let's start the game!");
         do {
             level++;
             max = (int) Math.pow(10, level);
@@ -24,40 +24,40 @@ public class SimpleGame {
 
 
 
-        System.out.println("Гра почалась!");
+        System.out.println("The game has begun!");
         System.out.println();
-        System.out.printf("--== Рівень %d ==--\n",level);
+        System.out.printf("--== Level %d ==--\n",level);
         System.out.println();
-        System.out.println("Мінімальне число -0. Максимальне число - "+ max);
+        System.out.println("The minimum number is - 0. The maximum number is -  "+ max);
 
 
 
         while (number != secretNumber){
-            System.out.println("Ваша спроба №"+count);
-            System.out.print("Введіть своє число:  ");
+            System.out.println("Your try №"+count);
+            System.out.print("Enter your number:  ");
             number = scanner.nextInt();
             System.out.println();
             if (number<0||number>max) {
-                System.out.println("Число за межами діапазно. Діапазон від 0 до "+max);
+                System.out.println("Number out of range. Range from 0 to "+max);
                 continue;
             }
             else if (number < secretNumber){
-                System.out.println("Не вгадали!Секретне счисло БІЛЬШЕ.");
+                System.out.println("They didn't guess! The secret number is MORE.");
                 System.out.println();
                 count++;
                 continue;
             }
             else if (number > secretNumber) {
-                System.out.println("Не вгадали!Секретне счисло МЕНШЕ.");
+                System.out.println("They didn't guess! The secret number is LESS.");
                 System.out.println();
                 count++;
                 continue;
             } else if (number == secretNumber) {
-                System.out.println("Ви ВГАДАЛИ! Кількість спроб -  "+count);
+                System.out.println("You GUESSED it! Number of attempts -  "+count);
                 System.out.println();
-                System.out.println("Переходимо на наступний рівень!");
+                System.out.println("Let's go to the next level!");
                 System.out.println();
-//                System.out.print("Бажаєте продовжити?  ");
+//                System.out.print("Would you like to continue?  ");
 //                String tempContin = scanner.nextLine();
             }
         }
